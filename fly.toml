@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for discord-bot-bantawa on 2024-07-05T21:48:09+05:45
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'discord-bot-bantawa'
+primary_region = 'iad'
+
+[build]
+
+# [http_service]
+# internal_port = 3000
+# force_https = true
+# auto_stop_machines = false
+# auto_start_machines = true
+# min_machines_running = 0
+# processes = ['app']
+
+[[services]]
+internal_port = 8080
+protocol = "tcp"
+auto_start_machines = true
+auto_stop_machines = false # prevent automatic suspension
+min_machines_running = 1   # keep a machine running at all times
+
+[[vm]]
+size = 'shared-cpu-1x'
